@@ -17,9 +17,10 @@
 | --- | --- |
 | * | 匹配 0 或多个字符 |
 | ? | 匹配任意一个字符 |
-| [list] | 匹配 list 中的任意单一字符, 如 ls [12345.txt] 能匹配到 1.txt 2.txt ... 5.txt |
+| [list] | 匹配 list 中的任意单一字符, 如 ls [12345].txt 能匹配到 1.txt 2.txt ... 5.txt |
 | [^list] | 匹配 除 list 中的任意单一字符以外的字符 |
 [c1-c2] | 匹配 c1-c2 中的任意单一字符 如：[0-9][a-z] |
+| {  } | 大括号可以用于批量创建文件，[ ]不行 |
 { string1, string2 } | 匹配 string1 或 string2 (或更多)其一字符串 |
 { c1..c2 } | 匹配 c1-c2 中全部字符 如{1..10}, 如 touch {1..10}.txt 创建 1.txt ... 10.txt |
 
@@ -38,9 +39,9 @@
 | 命令 | 含义 |
 | ---  | ---  |
 | groups _user_ | 查看某个用户所属的组 |
-| sudo usermod -G _group_ _user_ | 将用户添加到某个组 |
-| sudo usermod -G sudo或wheel(centos) | 将用户添加到 sudo组 |
-| sudo deluser _user_ --remove-home | 将用户从某个组删除 |
+| sudo usermod -G <组> <用户> | 将用户添加到某个组 |
+| sudo usermod -G sudo或wheel(centos) <用户> | 将用户添加到 sudo组 |
+| sudo deluser或userdel _user_ --remove-home | 将用户从某个组删除 |
 
 > 将用户添加到 sudo 组的好处就是不用切换用户环境就可以使用 sudo 权限。
 
